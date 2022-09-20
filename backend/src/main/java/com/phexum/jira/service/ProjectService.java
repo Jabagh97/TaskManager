@@ -1,14 +1,9 @@
 package com.phexum.jira.service;
 
-import com.phexum.jira.repository.ProjectRepository;
-import org.springframework.stereotype.Service;
+import com.phexum.jira.dto.ProjectDto;
 
-@Service
-public class ProjectService {
-    private final ProjectRepository repository;
+import java.util.concurrent.ExecutionException;
 
-
-    public ProjectService(ProjectRepository repository) {
-        this.repository = repository;
-    }
+public interface ProjectService {
+    Iterable<ProjectDto> findBySite(long siteId) throws ExecutionException, InterruptedException;
 }
